@@ -1,3 +1,5 @@
+# A tuple is similar to a list but it’s immutable, unlike a list which is mutable.
+
 # Creating a tuple
 my_tuple = (1, 2, 3, "hello", 4.5)
 
