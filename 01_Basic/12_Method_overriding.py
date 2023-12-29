@@ -1,3 +1,5 @@
+# Method overriding is the practice of re-implementing a method in a child class. 
+
 class Shape:
    def no_of_sides(self):
        pass

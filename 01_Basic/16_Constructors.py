@@ -1,3 +1,7 @@
+# The task of constructors is to initialise (assign values) to the data members of the class when an object of class is created. 
+# In python __init()__ method is called the constructor and is always called when an objcect is created. It’s possible 
+# to store information in instances if the variable is initialised under __init__.  
+
 class Dog:
     scientific = "Canis lupus familiaris"
 

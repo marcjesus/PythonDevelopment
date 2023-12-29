@@ -1,3 +1,6 @@
+# Aggregation refers to a relationship between two classes where one class contains an object of another class. 
+# It is a way to achieve code reusability and maintainability by creating complex objects using simpler ones. 
+
 class Author:
     def __init__(self, name):
         self.name = name

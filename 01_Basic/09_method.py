@@ -1,3 +1,6 @@
+# A method is a function that “belongs to” an object. 
+# List of objects have methods called append, insert, remove, sort, etc…
+
 class Calculator:
     def __init__(self):
         self.result = 0

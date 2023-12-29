@@ -1,3 +1,5 @@
+# Encapsulation describes the act of combining data with the matching methods into a single entity.
+
 class Library:
     def __init__(self, id, name):
         self.bookId = id
