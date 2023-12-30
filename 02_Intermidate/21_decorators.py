@@ -1,4 +1,6 @@
-# Decorators
+# Decorators allow you to modify the behaviour of functions or classes. 
+# They provide a clean and efficient way to add functionality to existing code without modifying it directly. 
+
 import time
 #This will be run first
 def timer_decorator(func):   
