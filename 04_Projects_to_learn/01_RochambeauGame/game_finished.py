@@ -1,3 +1,5 @@
+"""I'm stuck in CREATE PLATER CLASSES THAT REMEMBER"""
+"""The class created is ReflectPlayer(Player)"""
 """This program plays a game of Rock, Paper, Scissors between two Players,
 and reports both Player's scores each round."""
 import random
@@ -5,14 +7,22 @@ import random
 moves = ['rock', 'paper', 'scissors']
 
 class Player:
+    """
+    Parent class with 2 methods. 
+    """    
     def move(self):
-        return 'rock'
+        pass
 
     def learn(self, my_move, their_move):
-        pass
+        self.player_move = my_move
+        self.opponent_move = their_move
 
 
 def beats(one, two):
+    """
+    Function to check who won. If return is 1, player wins, if return is 2, computer wins.
+    """
+    print(f"In beats function... Who will win? Computer has choosen {two}, player {one}")
     if ( one == 'rock' and two == 'scissors' ) or ( one == 'scissors' and two == 'paper' ) or ( one == 'paper' and two == 'rock' ):
         return 1
     elif ( two == 'rock' and one == 'scissors' ) or ( two == 'scissors' and one == 'paper' ) or ( two == 'paper' and one == 'rock' ):
@@ -48,8 +58,18 @@ class HumanPlayer(Player):
 
         if number == 1: return 'rock'
         elif number == 2: return 'paper'
-        else: return 'scissors'
+        elif number == 3: return 'scissors'
+        else: return moves[random.randint(0,2)]
 
+
+class ReflectPlayer(Player):
+    
+    def reactive_move(self,opponent_move):
+        if self.opponent_move == moves[0]: return moves[1]
+        elif self.opponent_move == moves[1]: return moves[2]
+        elif self.opponent_move == moves[2]: return moves [0]
+        else: return moves[random.randint(0,2)]
+        
 
 
 class Game:
@@ -61,7 +81,7 @@ class Game:
 
     def play_round(self):
         move1 = self.p1.move()
-        move2 = self.p2.move()
+        move2 = self.p2.reactive_move(move1)
         print(f"You: {move1}  Computer: {move2}")
         result = beats(move1,move2)
         if result == 1:
@@ -76,6 +96,7 @@ class Game:
     def play_game(self):
         print("Game start!")
         for round in range(3):
+            print("=====================================================")
             print(f"Round {round}:")
             self.play_round()
         
@@ -90,6 +111,6 @@ class Game:
 
 if __name__ == '__main__':
     player1 = HumanPlayer()
-    player2 = RandomPlayer()
+    player2 = ReflectPlayer()
     game = Game(player1, player2)
     game.play_game()
