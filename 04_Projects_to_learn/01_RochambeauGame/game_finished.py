@@ -1,108 +1,117 @@
-"""I'm stuck in CREATE PLATER CLASSES THAT REMEMBER"""
-"""The class created is ReflectPlayer(Player)"""
-"""This program plays a game of Rock, Paper, Scissors between two Players,
-and reports both Player's scores each round."""
 import random
 
-moves = ['rock', 'paper', 'scissors']
+# List of possible moves
+MOVES = ['rock', 'paper', 'scissors']
 
 class Player:
-    """
-    Parent class with 2 methods. 
-    """    
+    """Parent class representing a player in the game."""
+
     def move(self):
+        """Abstract method for getting the player's move."""
         pass
 
     def learn(self, my_move, their_move):
+        """Records the player's and opponent's moves."""
         self.player_move = my_move
         self.opponent_move = their_move
 
+    def get_opponent_move(self, move2):
+        """Sets the opponent's move."""
+        self.opponent_move = move2.get_move()
+
 
 def beats(one, two):
-    """
-    Function to check who won. If return is 1, player wins, if return is 2, computer wins.
-    """
-    print(f"In beats function... Who will win? Computer has choosen {two}, player {one}")
-    if ( one == 'rock' and two == 'scissors' ) or ( one == 'scissors' and two == 'paper' ) or ( one == 'paper' and two == 'rock' ):
+    """Determines the winner between two moves."""
+    if ((one == 'rock' and two == 'scissors') or 
+        (one == 'scissors' and two == 'paper') or 
+        (one == 'paper' and two == 'rock')):
         return 1
-    elif ( two == 'rock' and one == 'scissors' ) or ( two == 'scissors' and one == 'paper' ) or ( two == 'paper' and one == 'rock' ):
+    elif ((two == 'rock' and one == 'scissors') or 
+          (two == 'scissors' and one == 'paper') or 
+          (two == 'paper' and one == 'rock')):
         return 2
-    elif (one == 'rock' and two == 'rock') or (one == 'scissors' and two == 'scissors') or (one == 'paper' and two == 'paper'):
+    elif one == two:
         return 0
-    else : 
+    else:
         print("ERROR in beats")
 
 
 class RandomPlayer(Player):
+    """Represents a player making random moves."""
+
     def move(self):
+        """Generates a random move among 'rock', 'paper', or 'scissors'."""
         value = random.randint(0, 2)
-        #print(f"Value {value}")
         if value == 0:
             return 'rock'
         elif value == 1:
             return 'paper'
         else:
             return 'scissors'
-        
-class HumanPlayer(Player):
-    def move(self):
-        while True:
-            try:
-                number = int(input("What will you go for? 1 is rock, 2 is paper and 3 is scissors"))
-                if number in (1,2,3):
-                    break
-                else:
-                    print("You didn't select anything")
-            except ValueError:
-                print("Invalid input")
 
-        if number == 1: return 'rock'
-        elif number == 2: return 'paper'
-        elif number == 3: return 'scissors'
-        else: return moves[random.randint(0,2)]
+
+class HumanPlayer(Player):
+    """Represents a human player inputting moves."""
+
+    def move(self):
+        """Prompts the user for a move and returns the selected move."""
+        while True:
+            entry = input("Do you play rock, paper or scissors?")
+            if entry in MOVES:
+                return entry
+            else:
+                print("You didn't select anything, try again")
 
 
 class ReflectPlayer(Player):
-    
-    def reactive_move(self,opponent_move):
-        if self.opponent_move == moves[0]: return moves[1]
-        elif self.opponent_move == moves[1]: return moves[2]
-        elif self.opponent_move == moves[2]: return moves [0]
-        else: return moves[random.randint(0,2)]
-        
+    """Represents a player that reflects the opponent's previous move."""
+
+    def move(self):
+        """Reflects the opponent's last move or chooses randomly."""
+        if hasattr(self, 'opponent_move') and self.opponent_move in MOVES:
+            index = MOVES.index(self.opponent_move)
+            return MOVES[(index + 1) % len(MOVES)]
+        else:
+            return MOVES[random.randint(0, 2)]
 
 
 class Game:
+    """Manages the Rock, Paper, Scissors game between two players."""
+
     def __init__(self, p1, p2):
+        """Initializes the game with two player instances."""
         self.p1 = p1
         self.p2 = p2
-        self.scorePlayer1 = 0
-        self.scorePlayer2 = 0
+        self.score_player1 = 0
+        self.score_player2 = 0
 
     def play_round(self):
+        """Executes a single round of the game."""
         move1 = self.p1.move()
-        move2 = self.p2.reactive_move(move1)
+        move2 = self.p2.move()
         print(f"You: {move1}  Computer: {move2}")
-        result = beats(move1,move2)
+        result = beats(move1, move2)
         if result == 1:
-            self.scorePlayer1 += 1
+            self.score_player1 += 1
         elif result == 2:
-            self.scorePlayer2 += 1
+            self.score_player2 += 1
         else:
-            return 0 
+            return 0
+        print(f"Player : {self.score_player1} | Computer : {self.score_player2}")
         self.p1.learn(move1, move2)
         self.p2.learn(move2, move1)
 
     def play_game(self):
+        """Initiates and plays the entire game."""
         print("Game start!")
-        for round in range(3):
+        for _ in range(3):
             print("=====================================================")
-            print(f"Round {round}:")
+            print(f"Round {_}:")
             self.play_round()
-        
-        if self.scorePlayer1 > self.scorePlayer2:
-            print("YOU WINS")
-        elif self.scorePlayer1 < self.scorePlayer2:
+
+        if self.score_player1 > self.score_player2:
+            print("YOU WIN")
+        elif self.score_player1 < self.score_player2:
             print("COMPUTER WINS")
         else:
             print("DRAW")
@@ -110,6 +119,7 @@ class Game:
 
 
 if __name__ == '__main__':
+    # Set up players and start the game
     player1 = HumanPlayer()
     player2 = ReflectPlayer()
     game = Game(player1, player2)
