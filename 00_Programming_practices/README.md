@@ -50,3 +50,14 @@ Programming best practices and principles are essential guidelines that enhance 
    - Conduct code reviews and regularly refactor code to improve structure, readability, and maintainability.
 
 Adopting these best practices and principles empowers developers to create high-quality, scalable, and maintainable software solutions while fostering collaboration and code reliability.
+
+
+# PYCODESTYLE 
+
+PEP 8, sometimes spelled PEP8 or PEP-8, is a document that provides guidelines and best practices on how to write Python code. It was written in 2001 by Guido van Rossum, Barry Warsaw, and Nick Coghlan. The primary focus of PEP 8 is to improve the readability and consistency of Python code. <br>
+
+pycodestyle is a tool to check your Python code against some of the style conventions in PEP 8. <br>
+
+- $ pip install pycodestyle <br>
+- $ pip install --upgrade pycodestyle <br>
+- $ pip uninstall pycodestyle <br>
