@@ -2,6 +2,40 @@
 
 In this repository you will find the main Python concepts. It's divided in three sections, basics, intermediate and advanced. 
 
+# Fundamentals
+
+Here is a list of 20 fundamental Python functions and methods along with a brief explanation of each: 
+1. [print()](#print)
+```python
+name = input("Enter your name: ")
+# If user enters "Alice", then name = "Alice"
+
+2. [input()](#input)
+3. [len()](#len)
+4. [range()](#range)
+5. [str()](#str)
+6. [int()](#int)
+7. [float()](#float)
+8. [list()](#list)
+9. [tuple()](#tuple)
+10. [dict()](#dict)
+11. [set()](#set)
+12. [sorted()](#sorted)
+13. [enumerate()](#enumerate)
+14. [zip()](#zip)
+15. [map()](#map)
+16. [filter()](#filter)
+17. [strip()](#strip)
+18. [split()](#split)
+19. [join()](#join)
+20. [format()](#format)
+
+## Examples
+
+### 1. print()
+
+Outputs the given objects to the console.
+
 ## Basics
 
 * 1. List: [Link](https://github.com/markgarcia-ai/PythonLearning/blob/main/01_Basic/01_list.py) <br>
