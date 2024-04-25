@@ -5,14 +5,20 @@ In this repository you will find the main Python concepts. It's divided in three
 # Fundamentals
 
 Here is a list of 20 fundamental Python functions and methods along with a brief explanation of each: 
-1. [print()](#print)
+1. [print()](#print) : Outputs the given objects to the console.
+2. [input()](#input) : Reads input from the user via the console.
 ```python
 name = input("Enter your name: ")
 # If user enters "Alice", then name = "Alice"
+```
+3. [len()](#len) : Returns the length of an object such as a string, list, or dictionary.
+```python
+length = len("Hello")
+# Output: 5
+```
+4. [range()](#range) : Generates a sequence of numbers within a specified range.
 
-2. [input()](#input)
-3. [len()](#len)
-4. [range()](#range)
+
 5. [str()](#str)
 6. [int()](#int)
 7. [float()](#float)
