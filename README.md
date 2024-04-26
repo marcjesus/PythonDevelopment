@@ -9,7 +9,7 @@ Here is a list of 20 fundamental Python functions and methods along with a brief
 2. [input()](#input) : Reads input from the user via the console.
 ```python
 name = input("Enter your name: ")
-# If user enters "Alice", then name = "Alice"
+print("Hello, " + name)
 ```
 3. [len()](#len) : Returns the length of an object such as a string, list, or dictionary.
 ```python
@@ -17,30 +17,102 @@ length = len("Hello")
 # Output: 5
 ```
 4. [range()](#range) : Generates a sequence of numbers within a specified range.
+```python
+for i in range(5):
+    print(i)
+```
+5. [str()](#str) : Converts an object into a string representation.
+```python
+num = 123
+print(str(num))
+```
+6. [int()](#int) : Converts a string or number to an integer.
+```python
+string = "456"
+print(int(string))
+```
+7. [float()](#float) : Converts a string or number to a floating-point number.
+```python
+
+```
+8. [list()](#list) : Creates a list from an iterable (e.g., a string, tuple, or range).
+```python
+
+```
+9. [tuple()](#tuple) : Creates a tuple from an iterable.
+```python
+
+```
+10. [dict()](#dict) : Creates a dictionary from an iterable of key-value pairs.
+```python
+
+```
+11. [set()](#set) : Creates a set from an iterable, removing duplicate elements.
+```python
+
+```
+12. [sorted()](#sorted) : Returns a sorted copy of an iterable.
+```python
+
+```
+13. [enumerate()](#enumerate) : Returns an iterator that yields tuples containing the index and value of each element in an iterable.
+```python
+
+```
+14. [zip()](#zip) : Returns an iterator that aggregates elements from multiple iterables.
+```python
+
+```
+15. [map()](#map) : Applies a function to each item in an iterable and returns a map object.
+```python
+
+```
+16. [filter()](#filter) : Filters elements from an iterable based on a function.
+```python
+
+```
+17. [strip()](#strip) : Removes leading and trailing whitespace (or other characters) from a string.
+```python
+
+```
+18. [split()](#split) : Splits a string into a list of substrings based on a delimiter.
+```python
+
+```
+19. [join()](#join) : Concatenates elements of an iterable with a separator.
+```python
+
+```
+20. [format()](#format) : Formats a string by replacing placeholders with specified values.
+```python
+
+```
+21. [all()](#all) :  It returns True if all elements of an iterable are true. If the iterable is empty, it returns True.
+```python
+
+```
+22. [any()](#any) :  It returns True if any element of an iterable is true. If the iterable is empty, it returns False.
+```python
+
+```
+23. [max()](#max) : It returns the largest item in an iterable or the largest of two or more arguments.
+```python
+
+```
+24. [min()](#min) :  It returns the smallest item in an iterable or the smallest of two or more arguments.
+```python
+
+```
+25. [abs()](#abs) : It returns the absolute value of a number.
+```python
+
+```
+26. [sum()](#sum) : It returns the sum of all elements in an iterable.
+```python
+
+```
 
 
-5. [str()](#str)
-6. [int()](#int)
-7. [float()](#float)
-8. [list()](#list)
-9. [tuple()](#tuple)
-10. [dict()](#dict)
-11. [set()](#set)
-12. [sorted()](#sorted)
-13. [enumerate()](#enumerate)
-14. [zip()](#zip)
-15. [map()](#map)
-16. [filter()](#filter)
-17. [strip()](#strip)
-18. [split()](#split)
-19. [join()](#join)
-20. [format()](#format)
-
-## Examples
-
-### 1. print()
-
-Outputs the given objects to the console.
 
 ## Basics
 
