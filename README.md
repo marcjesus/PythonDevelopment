@@ -69,7 +69,22 @@ print(int(string))
 ```
 16. [filter()](#filter) : Filters elements from an iterable based on a function.
 ```python
+# Define a function to square a number
+def square(x):
+    return x ** 2
 
+# Create a list of numbers
+numbers = [1, 2, 3, 4, 5]
+
+# Use map() to square each number in the list
+squared_numbers = map(square, numbers)
+
+# Convert the map object to a list to display the result
+squared_numbers_list = list(squared_numbers)
+
+print(squared_numbers_list)
+
+# Output : [1, 4, 9, 16, 25]
 ```
 17. [strip()](#strip) : Removes leading and trailing whitespace (or other characters) from a string.
 ```python

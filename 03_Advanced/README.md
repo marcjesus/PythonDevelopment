@@ -17,3 +17,6 @@ Functions can manipulate this state, allowing it to perform actions that change 
 
 **49-Unit Testing** : Unit testing is typically done using the built-in ‘unittest’ framework, which provides a test discovery mechanism and a test runner. 
 
+**53-List comprehnsions** : A list comprehension in Python is a concise way to create lists. It allows you to generate a new list by applying an expression to each item in an existing iterable (such as a list, tuple, or range) and optionally filtering the items based on a condition.
+
+

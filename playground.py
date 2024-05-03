@@ -1,9 +1,7 @@
 if __name__ == '__main__':
-    n = input("Enter a number")
-    result = ""
-    for i in range(1,int(n)+1):
-        result=str(i) + result
-        print(f"Result = {str(i)} + {result}")
-    
-    reorder = result[::-1]
-    print(reorder)
+    n = int(input())
+    arr = map(int, input().split())
+    sorted_arr = sorted(arr,reverse=True)
+    unique_sorted_arr = list(set(sorted_arr))
+    print(unique_sorted_arr)
+    print(f"second higest number is { unique_sorted_arr[1]}")
