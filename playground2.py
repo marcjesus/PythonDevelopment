@@ -1,16 +1,37 @@
-def print_lowest_scores(nested_list):
-    if not nested_list:
-        print("The list is empty.")
-        return
+import yfinance as yf
+import json
+from datetime import datetime
 
-    # Find the lowest score
-    lowest_score = min(item[1] for item in nested_list)
+def fetch_apple_info(start_date, end_date):
+    # Ticker symbol for Apple Inc.
+    ticker_symbol = 'AAPL'
 
-    # Find names associated with the lowest score
-    lowest_score_names = [item[0] for item in nested_list if item[1] == lowest_score]
+    # Fetch the company data
+    apple = yf.Ticker(ticker_symbol)
+    
+    # Get all available information
+    company_info = apple.info
 
-    print("Names with the lowest score(s):", lowest_score_names)
+    # Pretty-print the company information as JSON
+    print("Company Information:")
+    print(json.dumps(company_info, indent=4))
 
-# Example usage:
-scores_list = [["Alice", 85], ["Bob", 70], ["Charlie", 90], ["Dave", 70], ["Eve", 80]]
-print_lowest_scores(scores_list)
+    # Fetch historical market data
+    history = apple.history(start=start_date, end=end_date)
+    print(f"\nHistorical Data from {start_date} to {end_date}:")
+    print(history)
+
+if __name__ == "__main__":
+    # Set the date range for fetching historical data
+    start_date = '2022-01-01'
+    end_date = '2022-12-31'
+
+    # Validate date format
+    try:
+        datetime.strptime(start_date, '%Y-%m-%d')
+        datetime.strptime(end_date, '%Y-%m-%d')
+    except ValueError:
+        print("Incorrect date format, should be YYYY-MM-DD")
+    else:
+        fetch_apple_info(start_date, end_date)
+ 

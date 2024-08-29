@@ -1,35 +1,29 @@
-#Challenge: 
-#The provided code stub will read in a dictionary containing key/value pairs of name:[marks] for a list of students. 
-#Print the average of the marks array for the student name provided, showing 2 places after the decimal.
+# Create a number guessing game where the computer randomly selects a number between 1 and 100, 
+# and the user has to guess what it is. The user gets up to 10 attempts to guess the number. 
 
+import random
+def number_guessing():
+    number_to_guess = random.randint(1,100)
+    print("Number between 1 to 100")
 
-if __name__ == '__main__':
-    student_marks = {'Marc': [46.0, 24.0, 53.0], 'Krishna': [44.0, 32.0, 84.0]} 
-    print("Introduce number of students:")
+    for attempt in range(1,11):
+        while True:
+            try:
+                guess = int(input(f"Attempt {attempt}"))
+                if 1 <= guess <= 100:
+                    break
+                else:
+                    print("Introduce number between 1 to 100")
+            except ValueError:
+                print("Invalid Input")
 
-    """
-    n = int(input())
-    student_marks = {}
-    print("Introduce names and scores -> Krishna 67 68 69")
-    for _ in range(n):
-        name, *line = input().split()
-        scores = list(map(float, line))
-        student_marks[name] = scores
-    """
-    print(f"Student marks {student_marks}")
-    print("What student do you want to check the average")
-    query_name = input()    
-    
-    def calculate_avg_marks(student_marks):
-        avg_marks = {}
-        for name, scores in student_marks.items():
-            avg_marks[name] = sum(scores) / len(scores)
-        return avg_marks
+        if guess < number_guessing: print("Too low")
+        elif guess > number_to_guess: print("Too high")
+        else:
+          print("You guessed the number {guess}")
+          return
         
+    print("You used all the attemps, the number was {number_to_guess}")
 
-    avg_marks = calculate_avg_marks(student_marks)    
-    for name, avg in avg_marks.items():  # Changed 'avg_marks' to 'avg' for clarity
-        if name == query_name:
-            print("{:.2f}".format(avg))
-    
-    
+number_guessing()
+          
